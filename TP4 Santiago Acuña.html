@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Productos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #productos-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .producto {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      width: 200px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .producto h3 {
+      margin-top: 0;
+    }
+
+    .producto p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Productos</h1>
+  <div id="productos-container"></div>
+
+  <script>
+    const productos = [
+      { nombre: "Laptop", marca: "Dell", precio: 1200, stock: 5 },
+      { nombre: "Smartphone", marca: "Samsung", precio: 800, stock: 10 },
+      { nombre: "Tablet", marca: "Apple", precio: 600, stock: 7 },
+      { nombre: "Monitor", marca: "LG", precio: 300, stock: 12 },
+      { nombre: "Teclado", marca: "Logitech", precio: 50, stock: 20 },
+      { nombre: "Mouse", marca: "Razer", precio: 70, stock: 15 },
+      { nombre: "Auriculares", marca: "Sony", precio: 150, stock: 9 },
+      { nombre: "Impresora", marca: "HP", precio: 200, stock: 4 },
+      { nombre: "Webcam", marca: "Microsoft", precio: 90, stock: 8 }
+    ];
+
+    const contenedor = document.getElementById("productos-container");
+
+    productos.map((producto) => {
+      const div = document.createElement("div");
+      div.className = "producto";
+      div.innerHTML = `
+        <h3>${producto.nombre}</h3>
+        <p><strong>Marca:</strong> ${producto.marca}</p>
+        <p><strong>Precio:</strong> $${producto.precio}</p>
+        <p><strong>Stock:</strong> ${producto.stock} unidades</p>
+      `;
+      contenedor.appendChild(div);
+    });
+  </script>
+</body>
+</html>
